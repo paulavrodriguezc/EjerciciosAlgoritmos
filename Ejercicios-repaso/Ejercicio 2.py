@@ -1,5 +1,0 @@
-n=int(input("Please, enter the dividend (integer): "))
-m=int(input("Please, enter the divisor (integer): "))
-q=int(n//m)
-r=int(n%m)
-print(f"When dividing {n} by {m}, the quotient is {q} and the rest is {r}.")
