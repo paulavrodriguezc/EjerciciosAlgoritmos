@@ -1,4 +1,12 @@
-matriz_1=[[1,2,3],[4,5,6]]
-matriz_2=[[-1,0],[0,1],[1,1]]
-resultado=[]
-accum=0
+number=int(input("Please enter an integer number greater than 0: "))
+aux=1
+is_pronic=False
+while aux<number:
+    if aux*(aux+1)==number:
+        is_pronic=True
+        break
+    aux+=1
+if is_pronic:
+    print(f"The number {number} is pronic.")
+else: 
+    print(f"The number {number} is NOT pronic.")
