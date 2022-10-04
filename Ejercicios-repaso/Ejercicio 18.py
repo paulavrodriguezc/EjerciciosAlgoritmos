@@ -17,8 +17,14 @@ for i in range(1,number+1):
 if is_pronic:
     print(f"The number {number} is pronic.")
 else:
-    print(f"The number {number} is not pronic.")        
-#palíndromo (cómo recorro número por número el número completo y cómo los comparo/hago que los dígitos se guarden en una lista? y después comparo?)
+    print(f"The number {number} is not pronic.")
+number=str(number)
+reversed_num=number[::-1]
+if number==reversed_num:
+    print(f"The number {number} is a palindrome.")
+else:
+    print(f"The number {number} is not a palindrome.")
+number=int(number)
 count=0
 for x in range(1,number):
     if number%x==0:
