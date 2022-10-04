@@ -16,10 +16,10 @@ if int(option)==1:
     ci=input("Por favor, introduzca el número de cédula del infractor. Ej: 25648971. \n->")
     data_base["Cédula del infractor"]=ci
     officer_inv=input("Por favor, introduzca el oficial encargado: \n1. Luis Bello \n2. José Quevedo \n3. Antonio Guerra \n->")
-    while not option.isnumeric():
+    while not officer_inv.isnumeric():
         print("Opción inválida. Por favor, introduzca un valor numérico dentro de las opciones dadas.")
         officer_inv=input("Por favor, introduzca el oficial encargado: \n1. Luis Bello \n2.José Quevedo \n3. Antonio Guerra \n->")
-        if int(option)>3 or int(option)<1:
+        if int(officer_inv)>3 or int(officer_inv)<1:
             print("Opción inválida. Por favor, introduzca una opción entre las dadas.")
             officer_inv=input("Por favor, introduzca el oficial encargado: \n1. Luis Bello \n2.José Quevedo \n3. Antonio Guerra \n->")
     if int(officer_inv)==1:
@@ -29,6 +29,12 @@ if int(option)==1:
     else:
         data_base[3]=officers[3]
     infraction_inv=input("Por favor, introduzca el tipo de infracción cometida: \n1. Choque \n2. Semáforo \n3. Falta de documentos \n->")
+    while not infraction_inv.isnumeric():
+        print("Opción inválida. Por favor, introduzca un valor numérico dentro de las opciones dadas.")
+        infraction_inv=input("Por favor, introduzca el tipo de infracción cometida: \n1. Choque \n2. Semáforo \n3. Falta de documentos \n->")
+        if int(infraction_inv)>3 or int(infraction_inv)<1:
+            print("Opción inválida. Por favor, introduzca una opción entre las dadas.")
+            infraction_inv=input("Por favor, introduzca el tipo de infracción cometida: \n1. Choque \n2. Semáforo \n3. Falta de documentos \n->")
     if int(infraction_inv)==1:
         data_base[4]=infraction[1]
     elif int(infraction_inv)==2:
