@@ -46,9 +46,9 @@ pathologies = {
         }
     ],   
 }
+number_client=0
+patients={}
 while True:
-    patients={}
-    number_client=0
     option=int(input("Please select a valid option: \n1. Register and bill the patient \n2. See all patients registered. \n3. Exit \n--->"))
     if option==1:
         number_client+=1
@@ -75,15 +75,27 @@ while True:
             new_patient[keys]=input(f"Please enter the patient's {keys}: ")
         patients[number_client]=new_patient
         new_patient["Pathology ID"]=id_pathology
-        print(patients)
+        print("***RECEIPT***")
+        print("Patient's information:")
         for key,value in patients.items():
-            if key==number_client:
-                print(f"{key} - {value}")
+                for key,value in new_patient.items():
+                    print(f"*{key} - {value}")
+        print("Pathology information:")
         for key,value in info_pathology.items():
                 print(key,value)
     elif option==2:
-        selection=int(input("Please select the pathology that the patients suffer from: \n1.Cystic Fibrosis \n2. Emphysema \n3. Tuberculosis \n4. Parkinson \n5. Epilepsy \n6. Diabetes \n7. Acromegaly \n.8 Hashimoto's thyroiditis \n--->"))
-        
+        print(patients)
+        selection=int(input("Please select the pathology that you would like to see the patients' list: \n1.Cystic Fibrosis \n2. Emphysema \n3. Tuberculosis \n4. Parkinson \n5. Epilepsy \n6. Diabetes \n7. Acromegaly \n.8 Hashimoto's thyroiditis \n--->"))
+        to_print=[]
+        for patient_number,patient_info in patients.items():
+            check=patient_info["Pathology ID"]
+            if check==selection:
+                to_print.append(patient_number)
+        for person in to_print:
+            print("\n")
+            for info,data in patients[person].items():
+                if info!="Pathology ID":
+                    print(f"* {info} - {data}")
     else:
         print("Thank you!")
         break
