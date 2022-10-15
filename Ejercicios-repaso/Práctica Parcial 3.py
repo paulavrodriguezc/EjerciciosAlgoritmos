@@ -59,18 +59,25 @@ def main():
                 show_inventory(vinyls)
             else:
                 vinyl_search=input("Please enter the name of the vinyl: ").lower()
+                is_in=True
                 print("Your search result is as follows:")
                 for number_vinyl,info_vinyl in vinyls.items():
-                    # print(f"\t{number_vinyl}: ")? y validar si existe el álbum
-                    for data,info in info_vinyl.items():
-                        if vinyl_search==info_vinyl["name"].lower():
+                    if vinyl_search==info_vinyl["name"].lower():
+                        is_in=True
+                        print(f"Vinyl ID: {number_vinyl}: ")
+                        for data,info in info_vinyl.items():
                             print(f"\t*{data.title()}: {info}")
+                        break
+                    else:
+                        is_in=False
+                if is_in==False:
+                    print("The vinyl is not available.")
         elif int(option)==2:
             number_client+=1
             purchases+=1
             cash_desk["Total purchases"]=purchases
             clients[number_client]={"Name":input("Please enter the full name of the client: ")}
-            id=input("Please enter the ID number of the client (e.g: 28327724): ")
+            id=input("Please enter the ID number of the client (e.g: 28327724): ") 
             while not id.isnumeric():
                 print("Invalid input.")
                 id=input("Please enter the ID number of the client (e.g: 28327724): ")
