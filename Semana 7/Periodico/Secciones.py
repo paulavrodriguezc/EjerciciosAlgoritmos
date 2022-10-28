@@ -1,6 +1,3 @@
-from lzma import CHECK_ID_MAX
-
-
 class Section:
     def __init__(self, name, writers):
         self.name=name
