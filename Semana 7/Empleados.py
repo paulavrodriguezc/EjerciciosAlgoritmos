@@ -4,6 +4,8 @@ class Employee:
         self.last_name=last_name
         self.id=id
         self.pay=pay
+    def print_information(self):
+        print(f"Name: {self.first_name} {self.last_name}\nSalary: ${self.pay}")
 class Developer(Employee):
     def __init__(self, first_name, last_name, id, pay, programming_language):
         super().__init__(first_name, last_name, id, pay)
