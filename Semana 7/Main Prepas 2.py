@@ -36,7 +36,6 @@ def register_employee(employees: dict, ids: list):
     else:
         psychologist=select_option("if the employee is a psychologist", "if the employee is NOT a psychologist")
         employees["HR"].append(HR(first_name, last_name, id, pay, psychologist))
-    return employees
 def validate_id(ids: list, id: int):
     while id in ids:
         print("This employee is already registered.")
@@ -59,7 +58,7 @@ def remove_employee(employees: dict, ids: list):
             for employee in employees[department]:
                 if employee.id in ids:
                     employees[department].remove(employee)
-    return employees
+        ids.remove(id_removed)
 def main():
     employees={"Development":[], "Accounting": [], "HR": []}
     continue_menu=True
@@ -69,16 +68,17 @@ def main():
         option_menu=input("Select an option. \n1. Register employees \n2. See list of employees \n3. Remove employees \n4. Exit \n---> ")
         if option_menu=="1":
             while continue_process:
-                employees=register_employee(employees, ids)
+                register_employee(employees, ids)
                 continue_process=select_option("if you wish to continue registering employees", "if you wish to exit")
         elif option_menu=="2":
             for department in employees:
                 if len(employees[department])>0:
                     print(f"Department: {department}")
                     print_employees(employees[department])
+                    print(ids)
         elif option_menu=="3":
             while continue_process:
-                employees=remove_employee(employees, ids)
+                remove_employee(employees, ids)
                 continue_process=select_option("if you wish to continue removing employees", "if you wish to exit")
         else:
             print("Thanks for preferring us! Have a nice day!")
