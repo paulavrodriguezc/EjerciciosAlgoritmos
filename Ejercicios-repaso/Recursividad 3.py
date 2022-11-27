@@ -1,23 +1,23 @@
 # x es fila y y es columna
 def find_exit(matriz:list, vector: list):
     exit_found=False
-    if vector[0]!=6 and vector[1]!=6:
+    if vector[0]!=6 or vector[1]!=6:
         for fila in matriz:
             if vector[0]==matriz.index(fila):
                 for command in range(len(fila)):
                     if vector[1]==command:
                         if fila[command]=="UP":
                             vector[0]-=1
-                            find_exit(matriz,vector)
+                            return find_exit(matriz,vector)
                         elif fila[command]=="DOWN":
                             vector[0]+=1
-                            find_exit(matriz,vector)
+                            return find_exit(matriz,vector)
                         elif fila[command]=="RIGHT":
                             vector[1]+=1
-                            find_exit(matriz,vector)
+                            return find_exit(matriz,vector)
                         elif fila[command]=="LEFT":
                             vector[1]-=1
-                            find_exit(matriz,vector)
+                            return find_exit(matriz,vector)
     else:
         exit_found=True
     return exit_found
